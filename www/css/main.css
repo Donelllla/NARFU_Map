@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  background-color: rgba(4, 12, 37, 1);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  width: 100%;
+  max-width: 360px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.logo-container {
+  width: 296px;
+  height: 239px;
+  background: url("../images/NARFU_icon.svg") no-repeat center center;
+  background-size: cover;
+}
+.footer-text {
+  font-weight: bold;
+  font-size: 20px;
+  position: absolute;
+  top: calc(75% + 120px); /* 50% высоты экрана плюс половина высоты логотипа */
+  transform: translateY(50%);
+  width: 100%;
+  text-align: center;
+}

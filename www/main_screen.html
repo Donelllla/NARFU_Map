@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+    <link href="css/main_screen.css" rel="stylesheet" />
+    <title>Document</title>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=c53362d3-0e4f-4e39-a7ab-d75e75fafb4d&lang=ru_RU" type="text/javascript"></script>
+    <script src="js/map.js" defer></script>
+    <script src="js/main_screen.js" defer></script>
+    <script type="text/javascript">
+        function clickCampuses() {
+            location.href = "campuses.html";
+        }
+
+        function clickSportComplexes() {
+            location.href = "sport_complexes.html";
+        }
+
+        function clickDorms() {
+            location.href = "dorms.html";
+        }
+
+        function clickCategories() {
+            location.href = "categories.html";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main-container">
+        <div id="map-container" class="map-container"></div>
+        <div class="zoom-buttons">
+            <div class="zoom-button plus-button"></div>
+            <div class="zoom-button minus-button"></div>
+        </div>
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Поиск">
+                <div class="search-icon"></div>
+            </div>
+        </div>
+        <div id="navigation-container" class="navigation-container">
+            <div class="indicator">
+                <div class="indicator-bg"></div>
+                <div class="indicator-active"></div>
+            </div>
+
+            <div class="extra-content hidden">
+                <div class="search-container-2">
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="Поиск">
+                        <div class="search-icon"></div>
+                    </div>
+                </div>
+                <span class="title">Категории</span>
+            </div>
+
+            <div class="nav-items-container">
+                <div class="nav-item" onclick="clickCampuses();">
+                    <div class="nav-icon-bg"></div>
+                    <div class="nav-icon campuses-icon"></div>
+                    <span class="nav-text">Учебные корпуса</span>
+                </div>
+                <div class="nav-item" onclick="clickSportComplexes();">
+                    <div class="nav-icon-bg"></div>
+                    <div class="nav-icon sport-complexes-icon"></div>
+                    <span class="nav-text">Спорт-комплексы</span>
+                </div>
+                <div class="nav-item" onclick="clickDorms();">
+                    <div class="nav-icon-bg"></div>
+                    <div class="nav-icon dorms-icon"></div>
+                    <span class="nav-text">Общежития</span>
+                </div>
+                <div class="nav-item" onclick="clickCategories();">
+                    <div class="nav-icon-bg"></div>
+                    <div class="nav-icon other-icon"></div>
+                    <span class="nav-text">Другое</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

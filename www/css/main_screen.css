@@ -1,0 +1,232 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-container {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+}
+
+.zoom-buttons {
+  position: absolute;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.zoom-button {
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.minus-button {
+  background: url("../images/Minus.svg") no-repeat center center;
+  background-size: 75%;
+}
+
+.plus-button {
+  background: url("../images/plus1.svg") no-repeat center center;
+  background-size: 75%;
+}
+
+.navigation-container {
+  width: 100%;
+  height: 14vh;
+  max-height: 100%;
+  background: rgba(4, 12, 37, 1);
+  border-radius: 15px 15px 0 0;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0;
+  transition: height 0.3s ease-out, transform 0.3s ease-out; /* Анимация */
+  touch-action: none; /* Отключить стандартное поведение браузера на касания */
+  overflow: hidden; /* Чтобы скрывать содержимое при уменьшении */
+  z-index: 1000;
+}
+
+.indicator {
+  width: 100px;
+  height: 12px;
+  background-size: cover;
+  position: relative;
+  top: 0;
+  padding: 20px 0px;
+}
+
+.indicator-bg {
+  width: 100px;
+  height: 12px;
+  background: rgba(0, 23, 108, 1);
+  border: 1px solid rgba(255, 255, 255, 1);
+  border-radius: 25px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.indicator-active {
+  width: 92px;
+  height: 6px;
+  background: rgba(0, 49, 226, 1);
+  border-radius: 25px;
+  position: absolute;
+  top: 3px;
+  left: 4px;
+}
+
+.nav-items-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70px;
+  position: relative; /* Для размещения .nav-icon-bg и .nav-icon внутри */
+}
+
+.nav-icon {
+  width: 40px;
+  height: 40px; 
+  background: rgba(250, 250, 250, 1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  z-index: 2; /* Помещаем иконку над кругом */
+}
+
+.nav-icon-bg {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px; 
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+
+.campuses-icon {
+  background: url("../images/Briefcase.svg") no-repeat center center;
+  background-size: 60%;
+}
+
+.dorms-icon {
+  background: url("../images/Home.svg") no-repeat center center;
+  background-size: 60%;
+}
+
+.other-icon {
+  background: url("../images/plus2.svg") no-repeat center center;
+  background-size: 60%;
+}
+
+.sport-complexes-icon {
+  background: url("../images/Dumbbell.svg") no-repeat center center;
+  background-size: 60%;
+}
+
+.nav-text {
+  color: rgba(255, 255, 255, 1);
+  font-size: 12px;
+  text-align: center;
+}
+
+.title {
+  width: 100%;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.extra-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+.search-container {
+  width: 100%;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.search-container-2 {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.search-box {
+  width: 70vw;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 5px 5px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.search-input {
+  width: calc(100% - 30px); 
+  height: 30px;
+  border: none;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 0 10px;
+  font-size: 14px;
+  color: rgba(4, 12, 37, 1); 
+  opacity: 0.8;
+}
+
+.search-icon {
+  width: 26px;
+  height: 26px;
+  background: url("../images/loop.svg") no-repeat center center;
+  background-size: cover;
+  margin-left: 5px;
+}

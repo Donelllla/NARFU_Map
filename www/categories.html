@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+    <link href="./css/categories.css" rel="stylesheet" />
+    <title>Document</title>
+    <script type="text/javascript">
+        function clickCampuses() {
+            location.href = "campuses.html";
+        }
+
+        function clickSportComplexes() {
+            location.href = "sport_complexes.html";
+        }
+
+        function clickDorms() {
+            location.href = "dorms.html";
+        }
+
+        function clickCategories() {
+            location.href = "categories.html";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="navigation-container">
+        <div class="indicator">
+            <div class="indicator-bg"></div>
+            <div class="indicator-active"></div>
+        </div>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Поиск">
+                <div class="search-icon"></div>
+            </div>
+        </div>
+
+        <span class="title">Категории</span>
+
+        <div class="nav-items-container">
+            <div class="nav-item" onclick="clickCampuses();">
+                <div class="nav-icon-bg"></div>
+                <div class="nav-icon campuses-icon"></div>
+                <span class="nav-text">Учебные корпуса</span>
+            </div>
+            <div class="nav-item" onclick="clickDorms();">
+                <div class="nav-icon-bg"></div>
+                <div class="nav-icon dorms-icon"></div>
+                <span class="nav-text">Общежития</span>
+            </div>
+            <div class="nav-item" onclick="clickSportComplexes();">
+                <div class="nav-icon-bg"></div>
+                <div class="nav-icon sport-complexes-icon"></div>
+                <span class="nav-text">Спорт-комплексы</span>
+            </div>
+            <div class="nav-item" onclick="clickCategories();">
+                <div class="nav-icon-bg"></div>
+                <div class="nav-icon other-icon"></div>
+                <span class="nav-text">В разработке</span>
+            </div>
+            <div class="nav-item" onclick="clickCategories();">
+                <div class="nav-icon-bg"></div>
+                <div class="nav-icon other-icon"></div>
+                <span class="nav-text">В разработке</span>
+            </div>
+            <div class="nav-item" onclick="clickCategories();">
+                <div class="nav-icon-bg"></div>
+                <div class="nav-icon other-icon"></div>
+                <span class="nav-text">В разработке</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
