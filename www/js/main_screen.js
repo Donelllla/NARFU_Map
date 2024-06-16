@@ -9,11 +9,28 @@ function showContainer(containerId, titleText) {
     const targetContainer = document.getElementById(containerId);
     if (targetContainer) {
         targetContainer.classList.remove('hidden');
+        addContainer(containerId, 'наб. Северной Двины, д.17');
     }
 
     // Обновить текст заголовка
     const title = document.querySelector('.title');
     title.innerHTML = titleText;
+}
+
+function updatePhoneHandlers() {
+    document.querySelectorAll('.phone').forEach(function(phoneElement) {
+        phoneElement.addEventListener('click', function() {
+            var phoneInfo = this.closest('.container').querySelector('.phone-info');
+            phoneInfo.classList.toggle('hidden');
+
+            var phoneRect = this.getBoundingClientRect();
+            var infoRect = phoneInfo.getBoundingClientRect();
+
+            // Установка позиции над кнопкой телефона
+            phoneInfo.style.top = (phoneRect.top - infoRect.height - 30) + 'px';
+            // phoneInfo.style.left = (phoneRect.left + (phoneRect.width / 2) - (infoRect.width / 2)) + 'px';
+            });
+    });
 }
 
 document.addEventListener('DOMContentLoaded', function() {

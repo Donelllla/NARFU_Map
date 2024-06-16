@@ -1,7 +1,9 @@
+let map;
+
 ymaps.ready(init);
 
 function init() {
-    var map = new ymaps.Map("map-container", {
+    map = new ymaps.Map("map-container", {
         center: [64.544304, 40.538735], // Центр карты (Архангельск)
         zoom: 13, // Уровень масштабирования карты
         controls: [] // Пустой массив, чтобы убрать все стандартные элементы управления
@@ -59,9 +61,9 @@ function init() {
             }
         });
     });
+}
 
-
-    // Обработчик клика на элемент с классом 'route'
+function updateRouteHandlers(map) {
     document.querySelectorAll('.route').forEach(function(routeElement) {
         routeElement.addEventListener('click', function() {
             var address = this.closest('.container').querySelector('.address').textContent;
@@ -106,6 +108,7 @@ function showRoute(map, address) {
             map.geoObjects.add(multiRoute);
         }).catch(function(error) {
             alert('Ошибка геокодирования: ' + error.message);
+            console.log('Ошибка геокодирования: ' + error.message)
         });
     }).catch(function(error) {
         // Обработка ошибок получения геолокации
