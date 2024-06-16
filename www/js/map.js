@@ -71,6 +71,12 @@ function init() {
 }
 
 function showRoute(map, address) {
+    // Проверка доступности геолокации
+    if (!ymaps.geolocation) {
+        alert('Геолокация не поддерживается вашим браузером');
+        return;
+    }
+
     // Получить текущее местоположение пользователя
     ymaps.geolocation.get({
         provider: 'browser',
@@ -98,6 +104,17 @@ function showRoute(map, address) {
             // Очистить карту и добавить новый маршрут
             map.geoObjects.removeAll();
             map.geoObjects.add(multiRoute);
+        }).catch(function(error) {
+            alert('Ошибка геокодирования: ' + error.message);
         });
+    }).catch(function(error) {
+        // Обработка ошибок получения геолокации
+        if (error instanceof ymaps.error.GeoObjectError) {
+            alert('Не удалось определить местоположение');
+        } else if (error instanceof ymaps.error.GeoObjectNotFoundError) {
+            alert('Местоположение пользователя не найдено');
+        } else {
+            alert('Ошибка получения геолокации: ' + error.message);
+        }
     });
 }
