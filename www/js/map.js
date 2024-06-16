@@ -1,7 +1,7 @@
 ymaps.ready(init);
 
 function init() {
-    var myMap = new ymaps.Map("map-container", {
+    var map = new ymaps.Map("map-container", {
         center: [64.544304, 40.538735], // Центр карты (Архангельск)
         zoom: 13, // Уровень масштабирования карты
         controls: [] // Пустой массив, чтобы убрать все стандартные элементы управления
@@ -9,13 +9,14 @@ function init() {
 
     // Обработчик клика на кнопку увеличения
     document.querySelector('.plus-button').addEventListener('click', function() {
-        myMap.setZoom(myMap.getZoom() + 1, { duration: 300 }); // Увеличение масштаба с анимацией
+        map.setZoom(map.getZoom() + 1, { duration: 300 }); // Увеличение масштаба с анимацией
     });
 
     // Обработчик клика на кнопку уменьшения
     document.querySelector('.minus-button').addEventListener('click', function() {
-        myMap.setZoom(myMap.getZoom() - 1, { duration: 300 }); // Уменьшение масштаба с анимацией
+        map.setZoom(map.getZoom() - 1, { duration: 300 }); // Уменьшение масштаба с анимацией
     });
+
 
     // Создаем элемент управления поиска
     var searchControl = new ymaps.control.SearchControl({
@@ -26,7 +27,7 @@ function init() {
     });
 
     // Добавляем скрытый элемент управления поиска на карту
-    myMap.controls.add(searchControl, { float: 'none' });
+    map.controls.add(searchControl, { float: 'none' });
 
     // Функция для обновления позиции элемента управления поиска
     function updateSearchControlPosition() {
@@ -47,15 +48,56 @@ function init() {
     updateSearchControlPosition();
     window.addEventListener('resize', updateSearchControlPosition);
 
-    // Привязываем элемент управления к вашему input
-    var searchInput = document.querySelector('.search-input');
-    searchInput.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter') {
-            var request = searchInput.value;
-            searchControl.search(request);
-        }
+    // Найти все элементы с классом 'search-input'
+    var searchInputs = document.querySelectorAll('.search-input');
+    // Добавить обработчик события для каждого элемента
+    searchInputs.forEach(function(searchInput) {
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                var request = searchInput.value;
+                searchControl.search(request);
+            }
+        });
     });
 
-    // Добавляем элемент управления на карту
-    // myMap.controls.add(searchControl, { position: { top: 15, left: auto} });
+
+    // Обработчик клика на элемент с классом 'route'
+    document.querySelectorAll('.route').forEach(function(routeElement) {
+        routeElement.addEventListener('click', function() {
+            var address = this.closest('.container').querySelector('.address').textContent;
+            showRoute(map, address);
+        });
+    });
+}
+
+function showRoute(map, address) {
+    // Получить текущее местоположение пользователя
+    ymaps.geolocation.get({
+        provider: 'browser',
+        mapStateAutoApply: true
+    }).then(function(result) {
+        var userCoords = result.geoObjects.position;
+
+        // Найти координаты по адресу
+        ymaps.geocode(address).then(function(res) {
+            var targetCoords = res.geoObjects.get(0).geometry.getCoordinates();
+
+            // Построить маршрут
+            var multiRoute = new ymaps.multiRouter.MultiRoute({
+                referencePoints: [
+                    userCoords,
+                    targetCoords
+                ],
+                params: {
+                    routingMode: 'pedestrian' // или 'auto' для автомобильного маршрута
+                }
+            }, {
+                boundsAutoApply: true
+            });
+
+            // Очистить карту и добавить новый маршрут
+            map.geoObjects.removeAll();
+            map.geoObjects.add(multiRoute);
+        });
+    });
 }

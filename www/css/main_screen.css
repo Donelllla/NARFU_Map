@@ -110,6 +110,9 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: flex-start;
+  padding: 10px;
+  overflow-y: auto; /* Разрешить вертикальный скроллинг */
+  max-height: calc(100vh - 14vh); /* Высота максимально равна высоте экрана минус высота навигационного контейнера */
 }
 
 .title {
@@ -233,8 +236,8 @@ body {
 }
 /* main-container */
 
-/* campuses-container */
-.campus {
+/* data-containers */
+.container {
   width: 100%;
   background-color: #040C25;
   padding: 20px;
@@ -245,7 +248,7 @@ body {
   align-items: center; 
 }
 
-.campus-title {
+.container-title {
   font-size: 26px;
   color: rgba(250, 250, 250, 1);
   text-align: center;
@@ -328,10 +331,4 @@ body {
   background: url("../images/Hat.svg") center center no-repeat;
   background-size: contain;
 }
-
-#campuses-container {
-  overflow-y: auto; /* Разрешить вертикальный скроллинг */
-  max-height: calc(100vh - 14vh); /* Высота максимально равна высоте экрана минус высота навигационного контейнера */
-  padding: 10px; /* Добавим отступы для контента внутри */
-}
-/* campuses-container */
+/* data-containers */
