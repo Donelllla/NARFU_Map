@@ -393,9 +393,6 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  background: url("../images/map_image.jpg") no-repeat center center;
-  overflow-y: auto;
-  overflow-x: auto;
 }
 .logo-container {
   width: 296px;

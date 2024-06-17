@@ -50,6 +50,10 @@ function updateIndfoHandlers() {
 
 document.addEventListener('DOMContentLoaded', function() {
 
+
+    console.log(navigator.onLine);
+
+
     let isLocked = false; // Переменная для отслеживания состояния блокировки
     function updateContainerLock(container) {
         const navigationContainer = document.getElementById('navigation-container');
