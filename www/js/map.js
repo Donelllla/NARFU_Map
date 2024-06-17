@@ -160,8 +160,8 @@ function updateRouteHandlers(map) {
     });
 }
 
-async function getBusinessInfo(address) {
-    const apiKey = 'de20e663-23ba-4758-9355-6797283c6051';
+async function getBusinessInfo(address) { // Тут что то не так хз почему но после этой функции не работает updatePhoneHandlers() updateIndfoHandlers() updateRouteHandlers()
+    const apiKey = '5f0da250-ff78-4df0-8c49-6c045d183055';
     const url = `https://search-maps.yandex.ru/v1/?text=${encodeURIComponent(address)}&type=biz&lang=ru_RU&apikey=${apiKey}`;
 
     try {
