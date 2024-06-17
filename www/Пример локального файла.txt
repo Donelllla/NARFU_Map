@@ -1,0 +1,8 @@
+type: campuses
+title: "АУК-11"
+address: наб. Северной Двины, д.17
+hours: null
+phones: null
+info: "Очень много букв"
+icon: hat
+favorited: false

@@ -2,137 +2,118 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
-    <link href="css/main_screen.css" rel="stylesheet" />
-    <title>Document</title>
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=c53362d3-0e4f-4e39-a7ab-d75e75fafb4d&lang=ru_RU" type="text/javascript"></script>
-    <script src="js/map.js" defer></script>
-    <script src="js/main_screen.js" defer></script>
-    <script src="js/dynamic_content.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+  <link href="css/main_screen.css" rel="stylesheet" />
+  <title>Document</title>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=c53362d3-0e4f-4e39-a7ab-d75e75fafb4d&lang=ru_RU"
+    type="text/javascript"></script>
+  <script src="js/map.js"></script>
+  <script src="js/main_screen.js" defer></script>
+  <script src="js/dynamic_content.js"></script>
 </head>
 
 <body>
-    <div class="main-container">
-        <div id="map-container" class="map-container"></div>
-        <div class="zoom-buttons">
-            <div class="zoom-button plus-button"></div>
-            <div class="zoom-button minus-button"></div>
-        </div>
-        <div class="search-container">
-            <div class="search-box">
-                <input type="text" class="search-input" placeholder="Поиск">
-                <div class="search-icon"></div>
-            </div>
-        </div>
-        <div id="navigation-container" class="navigation-container">
-            <div class="indicator">
-                <div class="indicator-bg"></div>
-                <div class="indicator-active"></div>
-            </div>
-
-            <div class="extra-content hidden">
-                <div class="search-container-2">
-                    <div class="search-box">
-                        <input type="text" class="search-input" placeholder="Поиск">
-                        <div class="search-icon"></div>
-                    </div>
-                </div>
-                <span class="title">Категории</span>
-            </div>
-
-            <div id="main-container" class="nav-items-container">
-                <div class="nav-item campuses-icon" onclick="showContainer('campuses-container', 'Учебные корпуса');">
-                    <div class="nav-icon-bg"></div>
-                    <div class="nav-icon campuses-icon"></div>
-                    <span class="nav-text">Учебные корпуса</span>
-                </div>
-                <div class="nav-item sport-complexes-icon" onclick="showContainer('sport-complexes-container', 'Спорт-комплексы');">
-                    <div class="nav-icon-bg"></div>
-                    <div class="nav-icon sport-complexes-icon"></div>
-                    <span class="nav-text">Спорт-комплексы</span>
-                </div>
-                <div class="nav-item dorms-icon" onclick="showContainer('dorms-container', 'Общежития');">
-                    <div class="nav-icon-bg"></div>
-                    <div class="nav-icon dorms-icon"></div>
-                    <span class="nav-text">Общежития</span>
-                </div>
-                <div class="nav-item other-icon" onclick="showContainer('nav-container', 'Другое');">
-                    <div class="nav-icon-bg"></div>
-                    <div class="nav-icon other-icon"></div>
-                    <span class="nav-text">Другое</span>
-                </div>
-            </div>
-
-            <div id="campuses-container" class="nav-items-container hidden">
-              <!-- временно для дебага -->
-              <div style="color:white" onclick="showContainer('main-container', 'Категории');">Fuck go back</div> 
-            </div>
-
-            <div id="sport-complexes-container" class="nav-items-container hidden">
-              <!-- временно для дебага -->
-              <div style="color:white" onclick="showContainer('main-container', 'Категории');">Fuck go back</div> 
-              <div class="container">
-                <div>
-                  <div class="container-title">Корпус 1</div>
-                  <div class="working-hours">Время работы: 12:00 - 12:00</div>
-                  <div class="address">наб. Северной Двины, д.17</div>
-          
-                  <div class="otherItems">
-                    <div class="route"><span class="route-text">Маршрут</span></div>
-                    <div class="phone"></div>
-                    <div class="info"><span class="info-text">i</span></div>
-                    <div class="favorite"></div>
-                  </div>
-                </div>
-                <div class="icon-hat"></div>
-              </div>
-              <div class="divider"></div>
-            </div>
-
-            <div id="dorms-container" class="nav-items-container hidden">
-              <!-- временно для дебага -->
-              <div style="color:white" onclick="showContainer('main-container', 'Категории');">Fuck go back</div> 
-              <div class="container">
-                <div>
-                  <div class="container-title">Корпус 1</div>
-                  <div class="working-hours">Время работы: 12:00 - 12:00</div>
-                  <div class="address">наб. Северной Двины, д.17</div>
-          
-                  <div class="otherItems">
-                    <div class="route"><span class="route-text">Маршрут</span></div>
-                    <div class="phone"></div>
-                    <div class="info"><span class="info-text">i</span></div>
-                    <div class="favorite"></div>
-                  </div>
-                </div>
-                <div class="icon-hat"></div>
-              </div>
-              <div class="divider"></div>
-            </div>
-
-            <div id="nav-container" class="nav-items-container hidden">
-              <!-- временно для дебага -->
-              <div style="color:white" onclick="showContainer('main-container', 'Категории');">Fuck go back</div> 
-              <div class="container">
-                <div>
-                  <div class="container-title">Корпус 1</div>
-                  <div class="working-hours">Время работы: 12:00 - 12:00</div>
-                  <div class="address">наб. Северной Двины, д.17</div>
-          
-                  <div class="otherItems">
-                    <div class="route"><span class="route-text">Маршрут</span></div>
-                    <div class="phone"></div>
-                    <div class="info"><span class="info-text">i</span></div>
-                    <div class="favorite"></div>
-                  </div>
-                </div>
-                <div class="icon-hat"></div>
-              </div>
-              <div class="divider"></div>
-            </div>
-        </div>
+  <div class="main-container">
+    <div id="map-container" class="map-container"></div>
+    <!-- <div class="offline hidden">
+      <div class="logo-container"></div>
+      <span class="footer-text">Designed by Narfu</span>
+    </div> -->
+    <div class="map-container hidden">
+      <div class="map"></div>
     </div>
+    <div class="zoom-buttons">
+      <div class="zoom-button plus-button"></div>
+      <div class="zoom-button minus-button"></div>
+    </div>
+    <div class="search-container">
+      <div class="search-box">
+        <input type="text" class="search-input" placeholder="Поиск">
+        <div class="search-icon"></div>
+      </div>
+    </div>
+    <div id="navigation-container" class="navigation-container">
+      <div class="indicator">
+        <div class="indicator-bg"></div>
+        <div class="indicator-active"></div>
+      </div>
+
+      <div class="extra-content hidden">
+        <div class="search-container-2">
+          <div class="search-box">
+            <input type="text" class="search-input" placeholder="Поиск">
+            <div class="search-icon"></div>
+          </div>
+          <div class="close-btn" onclick="showContainer('main-container', 'Категории');"></div>
+        </div>
+        <span class="title">Категории</span>
+      </div>
+
+      <div id="main-container" class="nav-items-container">
+        <div class="nav-item campuses-icon" onclick="showContainer('campuses-container', 'Учебные корпуса');">
+          <div class="nav-icon-bg"></div>
+          <div class="nav-icon campuses-icon"></div>
+          <span class="nav-text">Учебные корпуса</span>
+        </div>
+        <div class="nav-item sport-complexes-icon"
+          onclick="showContainer('sport-complexes-container', 'Спорт-комплексы');">
+          <div class="nav-icon-bg"></div>
+          <div class="nav-icon sport-complexes-icon"></div>
+          <span class="nav-text">Спорт-комплексы</span>
+        </div>
+        <div class="nav-item dorms-icon" onclick="showContainer('dorms-container', 'Общежития');">
+          <div class="nav-icon-bg"></div>
+          <div class="nav-icon dorms-icon"></div>
+          <span class="nav-text">Общежития</span>
+        </div>
+        <div class="nav-item other-icon" onclick="showContainer('nav-container', 'Другое');">
+          <div class="nav-icon-bg"></div>
+          <div class="nav-icon other-icon"></div>
+          <span class="nav-text">Другое</span>
+        </div>
+      </div>
+
+      <div id="campuses-container" class="nav-items-container hidden"></div>
+
+      <div id="sport-complexes-container" class="nav-items-container hidden"></div>
+
+      <div id="dorms-container" class="nav-items-container hidden"></div>
+
+      <div id="nav-container" class="nav-items-container hidden">
+        <div class="nav-item other" onclick="showContainer('campuses-container', 'Учебные корпуса');">
+          <div class="nav-icon-bg"></div>
+          <div class="nav-icon campuses-icon"></div>
+          <span class="nav-text">Учебные корпуса</span>
+        </div>
+        <div class="nav-item other" onclick="showContainer('sport-complexes-container', 'Спорт-комплексы');">
+          <div class="nav-icon-bg"></div>
+          <div class="nav-icon sport-complexes-icon"></div>
+          <span class="nav-text">Спорт-комплексы</span>
+        </div>
+        <div class="nav-item other" onclick="showContainer('dorms-container', 'Общежития');">
+          <div class="nav-icon-bg"></div>
+          <div class="nav-icon dorms-icon"></div>
+          <span class="nav-text">Общежития</span>
+        </div>
+        <div class="nav-item other">
+          <div class="nav-icon-bg"></div>
+          <div class="nav-icon other-icon"></div>
+          <span class="nav-text">В разработке</span>
+        </div>
+        <div class="nav-item other">
+          <div class="nav-icon-bg"></div>
+          <div class="nav-icon other-icon"></div>
+          <span class="nav-text">В разработке</span>
+        </div>
+        <div class="nav-item other">
+          <div class="nav-icon-bg"></div>
+          <div class="nav-icon other-icon"></div>
+          <span class="nav-text">В разработке</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
