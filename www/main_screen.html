@@ -16,11 +16,13 @@
 <body>
   <div class="main-container">
     <div id="map-container" class="map-container"></div>
-    <div class="offline hidden">
-      <div class="logo-container"></div>
-      <span class="footer-text">Designed by Narfu</span>
+    <div id="logo-container" class="map-container hidden">
+      <div class="offline">
+        <div class="logo-container"></div>
+        <span class="footer-text">Designed by Narfu</span>
+      </div>
     </div>
-    <div class="map-container hidden">
+    <div id="offline-map" class="map-container hidden">
       <div class="map"></div>
     </div>
     <div class="zoom-buttons">
@@ -56,8 +58,7 @@
           <div class="nav-icon campuses-icon"></div>
           <span class="nav-text">Учебные корпуса</span>
         </div>
-        <div class="nav-item sport-complexes-icon"
-          onclick="showContainer('sport-complexes-container', 'Спорт-комплексы');">
+        <div class="nav-item sport-complexes-icon" onclick="showContainer('sport-complexes-container', 'Спорт-комплексы');">
           <div class="nav-icon-bg"></div>
           <div class="nav-icon sport-complexes-icon"></div>
           <span class="nav-text">Спорт-комплексы</span>

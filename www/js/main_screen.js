@@ -1,4 +1,8 @@
+let isLocked = false; // Переменная для отслеживания состояния блокировки
+
 function showContainer(containerId, titleText) {
+
+    isLocked = false;
     // Скрыть все контейнеры
     const containers = document.querySelectorAll('.nav-items-container');
     containers.forEach(container => {
@@ -50,11 +54,6 @@ function updateIndfoHandlers() {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-
-    console.log(navigator.onLine);
-
-
-    let isLocked = false; // Переменная для отслеживания состояния блокировки
     function updateContainerLock(container) {
         const navigationContainer = document.getElementById('navigation-container');
         if (container.scrollTop > 0) {
